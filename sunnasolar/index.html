@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Economize até 95% na sua conta de energia com a Sunna Solar. Energia limpa, sustentável e de alta eficiência.">
+  <title>Sunna Solar - Energia Sustentável</title>
+
+  <!-- Fontes e Estilos -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header id="header" class="header">
+    <div class="header-inner">
+      <div class="logo">
+        <a href="#hero"> 
+          <img src="imagens/Sunna Solar - logo.png" alt="Sunna Solar Logo" />
+        </a>
+      </div>
+
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="nav">
+        <a href="#hero">Home</a>
+        <a href="#beneficios">Benefícios</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contato" class="cta-btn">Contato</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== HERO ===== -->
+  <section class="hero" id="hero">
+    <h1>Economize até 95% na sua conta de energia</h1>
+    <p>Invista em energia limpa e sustentável. A Sunna Solar leva economia e tecnologia até você.</p>
+    <a href="#contato" class="cta-btn">Quero Economizar Agora</a>
+  </section>
+
+  <!-- ===== BENEFÍCIOS ===== -->
+  <section class="beneficios" id="beneficios">
+    <h2>Por que escolher energia solar?</h2>
+    <div class="beneficios-grid">
+      <div class="card"><h3>💰 Economia</h3><p>Reduza drasticamente seus custos de energia.</p></div>
+      <div class="card"><h3>🌎 Sustentabilidade</h3><p>Contribua para um planeta mais limpo e renovável.</p></div>
+      <div class="card"><h3>🏠 Valorização</h3><p>Imóveis com energia solar são mais valorizados.</p></div>
+      <div class="card"><h3>⚡ Retorno Rápido</h3><p>Recupere seu investimento em poucos anos.</p></div>
+    </div>
+  </section>
+
+  <!-- ===== SERVIÇOS ===== -->
+  <section class="servicos" id="servicos">
+    <h2>Nossos Serviços</h2>
+    <div class="servicos-grid">
+      <div class="card-servicos">
+        <h3>On-Grid</h3>
+        <p>Conectado à rede elétrica para máxima eficiência.</p>
+        <button class="btn service-btn" data-service="ongrid">Saiba mais</button>
+      </div>
+      <div class="card-servicos">
+        <h3>Off-Grid</h3>
+        <p>Sistema autônomo para locais sem acesso à rede.</p>
+        <button class="btn service-btn" data-service="offgrid">Saiba mais</button>
+      </div>
+      <div class="card-servicos">
+        <h3>Zero-Grid</h3>
+        <p>Combina o melhor dos dois mundos com independência total.</p>
+        <button class="btn service-btn" data-service="zerogrid">Saiba mais</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section class="faq" id="faq">
+    <h2>Perguntas Frequentes</h2>
+    <div class="faq-item">
+      <div class="faq-question">Como funciona o sistema solar? <span>+</span></div>
+      <div class="faq-answer">Os painéis captam energia solar e convertem em eletricidade para uso em sua residência.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">E se faltar sol? <span>+</span></div>
+      <div class="faq-answer">Mesmo em dias nublados, o sistema continua gerando energia, ainda que em menor quantidade.</div>
+    </div>
+    <div class="faq-item">
+      <div class="faq-question">Qual o custo de manutenção? <span>+</span></div>
+      <div class="faq-answer">A manutenção é mínima, bastando limpezas periódicas e inspeções simples.</div>
+    </div>
+  </section>
+
+  <!-- ===== CONTATO ===== -->
+  <section class="contato" id="contato">
+    <h2>Solicite um Orçamento</h2>
+    <form>
+      <input type="text" placeholder="Nome" required />
+      <input type="tel" placeholder="Telefone" required />
+      <input type="email" placeholder="E-mail" required />
+      <select required>
+        <option value="">Tipo de Instalação</option>
+        <option>Residencial</option>
+        <option>Rural</option>
+        <option>Empresarial</option>
+      </select>
+      <div class="form-buttons">
+        <button type="button" class="btn-whats">WhatsApp</button>
+        <button type="submit" class="btn-email">E-mail</button>
+      </div>
+    </form>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer>
+    <p>© 2025 Sunna Solar. Todos os direitos reservados.</p>
+    <p><a href="mailto:contato@sunnasolar.com.br">contato@sunnasolar.com.br</a> | ☎ (99) 99999-9999</p>
+    <p><a href="#">Instagram</a> | <a href="#">Facebook</a> | <a href="#">LinkedIn</a> | <a href="#">YouTube</a></p>
+    <p><a href="#">Política de Privacidade</a></p>
+  </footer>
+
+
+  <!-- ===== MODAL SERVIÇOS ===== -->
+  <div class="modal" id="modalServicos">
+    <div class="modal-content" id="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <img id="modal-imagem" src="" alt="" />
+      <h3 id="modal-titulo"></h3>
+      <p id="modal-texto"></p>
+      <p id="modal-uso" style="margin-top:1rem;"></p>
+      <p id="modal-indicado" style="font-weight:600;color:#4CAF50;"></p>
+    </div>
+  </div>
+
+  <div class="topo" id="topo">↑</div>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
