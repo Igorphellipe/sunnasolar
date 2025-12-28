@@ -224,6 +224,16 @@ h2 {margin-bottom: 2rem;}
   font-size: 1rem;
 }
 
+video {
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+video{
+ overflow: hidden;
+}
+
 /* ==== FAQ ==== */
 .faq {
   background: #e4e9b7;
@@ -232,6 +242,13 @@ h2 {margin-bottom: 2rem;}
 /* ==== CONTATO ==== */
 .contato {
   background: #f0eddf;
+}
+
+/* rede social */
+.rede-social a{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* ==== CARTÕES ==== */
@@ -306,7 +323,29 @@ footer {
   padding: 2rem;
   text-align: center;
 }
-footer a {color: #FFD54F; margin: 0 .5rem;}
+footer a {color: #FFD54F; margin: 0 .5rem; transition: all 0.3s ease;}
+footer a:hover {
+  color: #4CAF50;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+}
+
+/* Alinhamento das imagens das redes sociais */
+.rede-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  vertical-align: middle;
+}
+
+.rede-social img {
+  vertical-align: middle;
+  transition: all 0.3s ease;
+}
+
+.rede-social a:hover img {
+  transform: scale(1.2);
+}
 .topo {
   position: fixed;
   bottom: 20px;
@@ -374,6 +413,10 @@ footer a {color: #FFD54F; margin: 0 .5rem;}
 /* ==== RESPONSIVIDADE ==== */
 @media (max-width: 768px) {
   header {flex-direction: column;}
+  video {
+    width: 100%;
+    height: auto;
+  }
   .hero h1 {font-size: 2rem;}
   form button {width: 100%; margin-bottom: 1rem;}
   .header-inner {
