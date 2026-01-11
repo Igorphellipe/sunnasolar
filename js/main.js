@@ -1,13 +1,36 @@
 console.log('JS carregado com sucesso');
 
 // MODAL DE SERVIÇOS 
+// MODAL DE CONTATO
+const modalContato = document.getElementById('modalContato');
+const abrirContato = document.getElementById('abrirContato');
+const fecharContato = document.getElementById('modal-close-contato');
+
+if (abrirContato && modalContato) {
+  abrirContato.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalContato.classList.add('active');
+  });
+}
+if (fecharContato && modalContato) {
+  fecharContato.addEventListener('click', () => {
+    modalContato.classList.remove('active');
+  });
+  // Fechar ao clicar fora do conteúdo
+  modalContato.addEventListener('click', (e) => {
+    if (e.target === modalContato) {
+      modalContato.classList.remove('active');
+    }
+  });
+}
 const modal = document.getElementById("modalServicos");
 const modalTitulo = document.getElementById("modal-titulo");
 const modalImagem = document.getElementById("modal-imagem");
 const modalDescricao = document.getElementById("modal-texto");
 const modalUso = document.getElementById("modal-uso");
 const modalIndicado = document.getElementById("modal-indicado");
-const fechaModal = document.querySelector(".modal-close");
+// selecionar especificamente o botão de fechar do modal de serviços
+const fechaModal = document.querySelector("#modalServicos .modal-close");
 
 const servicesData = {
   ongrid: {
@@ -66,7 +89,9 @@ if (modal) {
   }
 
 // Botão X
-  fechaModal.addEventListener('click', closeModal);
+  if (fechaModal) {
+    fechaModal.addEventListener('click', closeModal);
+  }
 
 // Clique fora
   modal.addEventListener('click', (e) => {
@@ -135,11 +160,19 @@ const menuLinks = document.querySelectorAll('a[href^="#"]');
 
 menuLinks.forEach(link => {
   link.addEventListener('click', function(e) {
-    e.preventDefault();
-
     const targetId = this.getAttribute('href');
     const targetSection = document.querySelector(targetId);
 
+    // Se não existir a seção alvo (ex: href="#"), tratar caso de CTA
+    if (!targetSection) {
+      if (this.classList.contains('cta-btn') && modalContato) {
+        e.preventDefault();
+        modalContato.classList.add('active');
+      }
+      return;
+    }
+
+    e.preventDefault();
     const headerOffset = 100; // Altura do cabeçalho
     const elementPosition = targetSection.offsetTop;
     const offsetPosition = elementPosition - headerOffset;
@@ -151,17 +184,17 @@ menuLinks.forEach(link => {
   });
 }); 
 
-
-// Alterar estilo do cabeçalho ao rolar a página
-const header = document.querySelector('header');
-
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 80) {
-    header.classList.add('scrolled');
-  } else {
-    header.classList.remove('scrolled');
-  } 
+// Garantir que todos os botões CTA abram o modal de contato (menu e hero)
+document.querySelectorAll('a.cta-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    // se o botão tiver href apontando a seção válida, deixamos o handler de scroll cuidar
+    const href = this.getAttribute('href');
+    if (href && href !== '#' && document.querySelector(href)) return;
+    e.preventDefault();
+    if (modalContato) modalContato.classList.add('active');
+  });
 });
+
 
 // Menu móvel
 const menuToggle = document.getElementById('menu-toggle');

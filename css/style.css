@@ -25,42 +25,49 @@ a {
 header {
   position: sticky;
   top: 0;
-  background: none;
-  box-shadow: none;
+  background: #F5F5F5; /* Mantém o fundo consistente */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Adiciona leve sombra */
   z-index: 1000;
-  padding: 1rem 2rem;
-
+  padding: 0.5rem 2rem;
+  width: 100%; /* Largura total da tela */
+  border-radius: 0; /* Remove bordas arredondadas */
 }
 
 .header-inner {
   max-width: 1200px;
   margin: 0 auto;
-  background: #F5F5F5;
-  padding: 1.2rem 2rem;
-  border-radius: 20px;
-  
-
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* Remover o efeito de mudança de tamanho ao rolar */
+header.scrolled .header-inner {
+  padding: 0.5rem 2rem; /* Consistente com o estado inicial */
+  border-radius: 0; /* Sem bordas arredondadas */
+  min-height: 56px; /* Altura fixa */
+}
+
+header.scrolled .logo img {
+  height: 48px; /* Tamanho fixo do logo */
 }
 
 /* MENU COMPACTO */
 header.scrolled .header-inner {
-  padding: 0.6rem 1.5rem;
+  padding: 0.2rem 1.5rem;
   border-radius: 999px;
-  gap: 0.4rem;
+  gap: 0;
+  min-height: 48px;
 }
 
 /* LOGO */
 header .logo img {
-  height: 80px;
+  height: 48px;
   transition: 0.3s;
 }
 
 header.scrolled .logo img {
-  height: 60px;
+  height: 40px;
 }
 
 /* NAV */
@@ -68,6 +75,7 @@ header nav {
   display: flex;
   align-items: center;
   gap: 1.5rem;
+  margin-left: auto;
 }
 
 header nav a {
@@ -302,6 +310,22 @@ form input, form select {
   border: 1px solid #ccc;
   border-radius: 8px;
 }
+
+/* Checkbox alinhado com label no modal de contato */
+#modalContato form input[type="checkbox"] {
+  width: auto;
+  display: inline-block;
+  margin: 0 0.5rem 0 0;
+  vertical-align: middle;
+  transform: scale(1);
+}
+#modalContato form label[for="politica"] {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  font-size: 0.95rem;
+  color: #333;
+}
 form button {
   width: 48%;
   padding: .8rem;
@@ -357,7 +381,57 @@ footer a:hover {
 }
 
 /* ==== MODAL SERVIÇOS ==== */
+.modal-form {
+  max-width: 400px;
+  width: 100%;
+  right: 0;
+  left: auto;
+  position: relative;
+  margin-left: auto;
+  margin-right: 0;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
 
+.form-buttons-center {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center;
+  width: 100%;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.btn-whats img {
+  margin-right: 8px;
+  vertical-align: middle;
+}
+
+.politica-msg {
+  font-size: 0.95rem;
+  color: #666;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.politica-select {
+  margin-bottom: 1rem;
+}
+
+@media (min-width: 900px) {
+  #modalContato .modal-content {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin-top: 40px;
+    margin-right: 5vw;
+    transform: translateY(0);
+  }
+  #modalContato {
+    align-items: flex-start;
+    justify-content: flex-end;
+  }
+}
+
+/* ==== MODAL CONTATO ==== */
 .modal {
   position: fixed;
   inset: 0;
@@ -365,7 +439,7 @@ footer a:hover {
   display: flex;
   align-items: center;
   justify-content: center;
-  z-index: 999;
+  z-index: 2000; /* maior que o header e botões flutuantes */
   opacity: 0;
   pointer-events: none;
   transition: opacity 0.35s cubic-bezier(.4,0,.2,1);
@@ -377,7 +451,7 @@ footer a:hover {
 }
 
 .modal-content {
-  background: #fff;
+  background: #ffffff;
   padding: 2rem;
   border-radius: 20px;
   max-width: 500px;
@@ -406,6 +480,52 @@ footer a:hover {
   right: 20px;
   font-size: 1rem;
   cursor: pointer;
+}
+
+/* ===== QUEM SOMOS ===== */
+.quem-somos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+}
+
+.quem-somos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.quem-somos-texto {
+  flex: 1;
+  min-width: 300px;
+}
+
+.quem-somos-texto h2 {
+  font-size: 2.5rem;
+  color: #333;
+  margin-bottom: 1rem;
+}
+
+.quem-somos-texto p {
+  font-size: 1.125rem;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.quem-somos-video {
+  flex: 1;
+  min-width: 300px;
+}
+
+.quem-somos-video video {
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 /* ==== RESPONSIVIDADE ==== */
@@ -466,4 +586,28 @@ footer a:hover {
 @media (max-width: 480px) {
   .hero h1 {font-size: 1.5rem;}
   .hero p {font-size: 1rem;}
+}
+
+/* ==== BOTÃO FLUTUANTE WHATSAPP ==== */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 100px;
+  right: 20px;
+  background-color: #25d366;
+  color: #FFF;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 3px #99999985;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.whatsapp-float:hover {
+  transform: scale(1.1);
+  background: #1ebe5d;
 }

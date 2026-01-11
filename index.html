@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Open+Sans&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <link rel="shortcut icon" href="./assets/Sunna Solar - logo.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
 </head>
 <body>
 
@@ -21,20 +23,18 @@
           <img src="./assets/Sunna Solar - logo.png" alt="Sunna Solar Logo" />
         </a>
       </div>
-
-      <button class="menu-toggle" id="menu-toggle">
-        <span></span>
-        <span></span>
-        <span></span>
-      </button>
-
       <nav class="nav">
         <a href="#hero">Home</a>
         <a href="#beneficios">Benefícios</a>
         <a href="#servicos">Serviços</a>
         <a href="#faq">FAQ</a>
-        <a href="#contato" class="cta-btn">Contato</a>
+        <a href="#" class="cta-btn">Contato</a>
       </nav>
+      <button class="menu-toggle" id="menu-toggle">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
   </header>
 
@@ -42,8 +42,50 @@
   <section class="hero" id="hero">
     <h1>Economize até 95% na sua conta de energia</h1>
     <p>Invista em energia limpa e sustentável. A Sunna Solar leva economia e tecnologia até você.</p>
-    <a href="#contato" class="cta-btn">Quero Economizar Agora</a>
+    <a href="#" class="cta-btn" id="abrirContato">Quero Economizar Agora</a>
   </section>
+
+    <!-- ===== QUEM SOMOS ===== -->
+  <section class="quem-somos" id="quem-somos">
+    <div class="quem-somos-container">
+      <div class="quem-somos-texto">
+        <h2>Quem Somos</h2>
+        <p>A Sunna Solar é uma empresa comprometida com a sustentabilidade e inovação. Nossa missão é levar energia limpa e acessível para todos, promovendo economia e contribuindo para um futuro mais verde.</p>
+        <p>Com anos de experiência no mercado, oferecemos soluções personalizadas para atender às necessidades de cada cliente, garantindo qualidade e eficiência em todos os projetos.</p>
+      </div>
+      <div class="quem-somos-video">
+        <video controls controlslist="nodownload" disablepictureinpicture>
+          <source src="./assets/quem-somos-video.mp4" type="video/mp4">
+          Seu navegador não suporta a reprodução de vídeos.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal Formulário de Contato -->
+  <div class="modal" id="modalContato">
+    <div class="modal-content modal-form">
+      <span class="modal-close" id="modal-close-contato">&times;</span>
+      <h2>Solicite um Orçamento</h2>
+      <form id="formContato">
+        <input type="text" placeholder="Nome" required />
+        <input type="tel" placeholder="Telefone" required />
+        <input type="email" placeholder="E-mail" required />
+        <select required>
+          <option value="">Tipo de Instalação</option>
+          <option>Residencial</option>
+          <option>Rural</option>
+          <option>Empresarial</option>
+        </select>
+        <input type="checkbox" id="politica" required/> 
+        <label for="politica">Li e aceito a Política de Privacidade</label>
+        <div class="form-buttons form-buttons-center">
+          <button type="button" class="btn-whats">WhatsApp <i class="fa-brands fa-whatsapp"></i></button>
+        </div>
+        <p class="politica-msg">Ao enviar, você concorda com nossa <a href="#" target="_blank">Política de Privacidade</a>.</p>
+      </form>
+    </div>
+  </div>
 
   <!-- ===== BENEFÍCIOS ===== -->
   <section class="beneficios" id="beneficios">
@@ -84,6 +126,7 @@
     </div>
   </section>
 
+
   <!-- ===== FAQ ===== -->
   <section class="faq" id="faq">
     <h2>Perguntas Frequentes</h2>
@@ -102,24 +145,7 @@
   </section>
 
   <!-- ===== CONTATO ===== -->
-  <section class="contato" id="contato">
-    <h2>Solicite um Orçamento</h2>
-    <form>
-      <input type="text" placeholder="Nome" required />
-      <input type="tel" placeholder="Telefone" required />
-      <input type="email" placeholder="E-mail" required />
-      <select required>
-        <option value="">Tipo de Instalação</option>
-        <option>Residencial</option>
-        <option>Rural</option>
-        <option>Empresarial</option>
-      </select>
-      <div class="form-buttons">
-        <button type="button" class="btn-whats">WhatsApp</button>
-        <button type="submit" class="btn-email">E-mail</button>
-      </div>
-    </form>
-  </section>
+  <!-- CONTATO REMOVIDO: agora é modal -->
 
   <!-- ===== FOOTER ===== -->
   <footer>
@@ -143,6 +169,11 @@
   </div>
 
   <div class="topo" id="topo">↑</div>
+
+  <a href="https://wa.me/5599999999999" class="whatsapp-float" target="_blank" aria-label="Fale conosco no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
 
   <script src="js/main.js"></script>
 </body>
